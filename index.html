@@ -1,0 +1,2087 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)file:///D:/Usuarios/cramir24/Desktop/IProject%20page2/index.html#mantenimiento -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPROJECT,CA | Ingeniería Construcción Mantenimiento Suministro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./index_files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link href="file:///D:/Usuarios/cramir24/Desktop/IProject%20page2/index_files/favicon.png" rel="icon">
+    <style>
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #004d99;
+            --secondary: #00a8e8;
+            --dark: #1a1a2e;
+            --darker: #0f0f1a;
+            --light: #ffffff;
+            --gray: #6b7280;
+            --light-gray: #f3f4f6;
+            --accent: #00d4ff;
+            --nav-height: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: var(--nav-height);
+            background: rgba(26, 26, 46, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 55px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .logo-text {
+            color: var(--light);
+            font-size: 1.3rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .logo-text span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Hero Carousel */
+        .hero-carousel {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            padding-top: var(--nav-height);
+        }
+
+        .carousel-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.7), rgba(15, 15, 26, 0.85));
+            z-index: 1;
+        }
+
+        .carousel-slide img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .carousel-slide.active .carousel-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .carousel-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .carousel-content h1 {
+            font-size: 3.5rem;
+            color: var(--light);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .carousel-content h1 span {
+            color: var(--secondary);
+        }
+
+        .carousel-content p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 35px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .carousel-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 102, 204, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid var(--light);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light);
+            color: var(--dark);
+        }
+
+        /* Carousel Navigation */
+        .carousel-nav {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            border: 2px solid white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .carousel-dot.active {
+            background: var(--secondary);
+            transform: scale(1.3);
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10;
+            backdrop-filter: blur(5px);
+        }
+
+        .carousel-arrow:hover {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-arrow.prev {
+            left: 30px;
+        }
+
+        .carousel-arrow.next {
+            right: 30px;
+        }
+
+        /* Carousel Progress Bar */
+        .carousel-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            z-index: 10;
+        }
+
+        .carousel-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--light);
+            margin-bottom: 20px;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(180deg, var(--dark) 0%, var(--darker) 100%);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-content h3 {
+            font-size: 2rem;
+            color: var(--light);
+            margin-bottom: 25px;
+        }
+
+        .about-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .about-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,102,204,0.3);
+            border: 2px solid rgba(0,102,204,0.3);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .value-card {
+            background: linear-gradient(135deg, rgba(26,26,46,0.8), rgba(15,15,26,0.9));
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(0,102,204,0.3);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,102,204,0.3);
+            border-color: var(--secondary);
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+        }
+
+        .value-card h4 {
+            color: var(--light);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .mv-card {
+            background: linear-gradient(135deg, rgba(26,26,46,0.9), rgba(15,15,26,0.95));
+            color: var(--light);
+            padding: 40px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,102,204,0.3);
+        }
+
+        .mv-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+        }
+
+        .mv-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .mv-card p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+        }
+
+        /* Services Section */
+        .services {
+            background: linear-gradient(180deg, var(--darker) 0%, var(--dark) 100%);
+        }
+
+        .services-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .service-tab {
+            padding: 12px 30px;
+            background: rgba(255,255,255,0.05);
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s;
+            color: var(--gray);
+        }
+
+        .service-tab.active,
+        .service-tab:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-color: transparent;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(26,26,46,0.8), rgba(15,15,26,0.9));
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(0,102,204,0.2);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,102,204,0.3);
+            border-color: var(--secondary);
+        }
+
+        .service-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .service-code {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .service-body {
+            padding: 25px;
+        }
+
+        .service-body h3 {
+            font-size: 1.2rem;
+            color: var(--light);
+            margin-bottom: 15px;
+        }
+
+        .service-body p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .service-features {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .service-features li {
+            list-style: none;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: linear-gradient(135deg, var(--dark), var(--darker));
+            color: var(--light);
+        }
+
+        .projects .section-header h2 {
+            color: var(--light);
+        }
+
+        .projects .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+        }
+
+        .project-image {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+
+        .project-content p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .project-period {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Maintenance Section */
+        .maintenance {
+            background: linear-gradient(180deg, var(--darker) 0%, var(--dark) 100%);
+        }
+
+        .maintenance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .maintenance-category {
+            background: linear-gradient(135deg, rgba(26,26,46,0.8), rgba(15,15,26,0.9));
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+            border: 1px solid rgba(0,102,204,0.2);
+        }
+
+        .maintenance-category:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+        }
+
+        .maintenance-category h3 {
+            font-size: 1.4rem;
+            color: var(--light);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .maintenance-category h3::before {
+            content: '';
+            width: 8px;
+            height: 30px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            border-radius: 4px;
+        }
+
+        .maintenance-list {
+            list-style: none;
+        }
+
+        .maintenance-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .maintenance-list li:last-child {
+            border-bottom: none;
+        }
+
+        .maintenance-list li::before {
+            content: '⚡';
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .maintenance-info {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 50px;
+            box-shadow: 0 15px 40px rgba(0,102,204,0.3);
+        }
+
+        .maintenance-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .maintenance-info p {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .maintenance-info ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .maintenance-info li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.95);
+        }
+
+        .maintenance-info li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            color: white;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+        }
+
+        .contact .section-header h2 {
+            color: var(--light);
+        }
+
+        .contact .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--light);
+        }
+
+        .contact-info p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+        }
+
+        .contact-details {
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .contact-item h4 {
+            color: var(--light);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .contact-item p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.05);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--light);
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            color: var(--light);
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .form-control::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker);
+            color: var(--light);
+            padding: 60px 0 30px;
+            border-top: 2px solid var(--primary);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: var(--light);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .footer-col p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transform: translateY(-5px);
+            border-color: transparent;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .carousel-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.3rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: var(--nav-height);
+                left: 0;
+                width: 100%;
+                background: var(--dark);
+                flex-direction: column;
+                padding: 30px;
+                gap: 20px;
+                transform: translateY(-150%);
+                transition: transform 0.3s ease-in-out;
+                border-bottom: 2px solid var(--primary);
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .carousel-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .carousel-content p {
+                font-size: 1rem;
+            }
+
+            .carousel-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .carousel-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .carousel-arrow.prev {
+                left: 15px;
+            }
+
+            .carousel-arrow.next {
+                right: 15px;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid,
+            .projects-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 25px;
+            }
+
+            .carousel-dot {
+                width: 10px;
+                height: 10px;
+            }
+
+            .logo img {
+                height: 45px;
+            }
+
+            .logo-text {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.4);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 60px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header style="background: rgba(26, 26, 46, 0.98);">
+      <div class="container nav-container">
+            <a href="./img/logo.png" class="logo">
+                <img src="./img/logo.png" alt="IPROJECT,CA Logo">
+            </a>
+            <button class="mobile-toggle" id="mobileToggle">☰</button>
+            <ul class="nav-links" id="navLinks">
+              <li><a href="#inicio">Inicio</a></li>
+              <li><a href="#nosotros">Nosotros</a></li>
+              <li><a href="#servicios">Servicios</a></li>
+              <li><a href="#proyectos">Proyectos</a></li>
+              <li><a href="#mantenimiento">Mantenimiento</a></li>
+              <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+    </header>
+
+    <!-- Hero Carousel -->
+    <section id="inicio" class="hero-carousel">
+       <div class="carousel-track" id="carouselTrack" style="transform: translateX(0%);">
+
+         <!-- Slide 1: Motogeneradores -->
+         <div class="carousel-slide active">
+             <img src="./img/motorgenerador.png" alt="Motogeneradores">
+             <div class="carousel-overlay">
+                 <div class="carousel-content">
+                     <span class="carousel-badge">Energía de Respaldo</span>
+                     <h1>Moto<span>generadores</span></h1>
+                     <p>Instalación y mantenimiento de plantas eléctricas para garantizar el suministro continuo de energía.</p>
+                    <div class="carousel-buttons">
+                         <a href="#servicios" class="btn btn-primary">Ver Servicios</a>
+                         <a href="#contacto" class="btn btn-secondary">Cotizar Ahora</a>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+           <!-- Slide 2: Cámaras de Seguridad -->
+           <div class="carousel-slide">
+               <img src="./img/camaras.png" alt="Cámaras de Seguridad">
+               <div class="carousel-overlay">
+                   <div class="carousel-content">
+                       <span class="carousel-badge">Videovigilancia</span>
+                       <h1>Cámaras de <span>Seguridad</span></h1>
+                       <p>Sistemas de CCTV y monitoreo 24/7 para proteger sus instalaciones y activos más valiosos.</p>
+                       <div class="carousel-buttons">
+                           <a href="#servicios" class="btn btn-primary">Ver Servicios</a>
+                           <a href="#contacto" class="btn btn-secondary">Cotizar Ahora</a>
+                       </div>
+                   </div>
+               </div>
+           </div>
+
+           <!-- Slide 3: Cercos Eléctricos -->
+             <div class="carousel-slide">
+                 <img src="./img/cercos.png" alt="Cercos Eléctricos">
+                 <div class="carousel-overlay">
+                     <div class="carousel-content">
+                         <span class="carousel-badge">Seguridad Industrial</span>
+                         <h1>Cercos <span>Eléctricos</span></h1>
+                         <p>Instalación y mantenimiento de sistemas de seguridad perimetral con los más altos estándares de protección.</p>
+                         <div class="carousel-buttons">
+                             <a href="#servicios" class="btn btn-primary">Ver Servicios</a>
+                             <a href="#contacto" class="btn btn-secondary">Cotizar Ahora</a>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+
+           <!-- Slide 4: Tableros Eléctricos -->
+           <div class="carousel-slide">
+               <img src="./img/tableros.png" alt="Tableros Eléctricos">
+               <div class="carousel-overlay">
+                   <div class="carousel-content">
+                       <span class="carousel-badge">Distribución de Energía</span>
+                       <h1>Tableros <span>Eléctricos</span></h1>
+                       <p>Diseño, instalación y mantenimiento de tableros de distribución y control para industrias.</p>
+                       <div class="carousel-buttons">
+                           <a href="#servicios" class="btn btn-primary">Ver Servicios</a>
+                           <a href="#contacto" class="btn btn-secondary">Cotizar Ahora</a>
+                       </div>
+                   </div>
+               </div>
+           </div>
+
+           <!-- Slide 5: Aire Acondicionado -->
+           <div class="carousel-slide">
+               <img src="./img/aires.png" alt="Sistemas HVAC">
+               <div class="carousel-overlay">
+                   <div class="carousel-content">
+                       <span class="carousel-badge">Climatización</span>
+                       <h1>Aire <span>Acondicionado</span></h1>
+                       <p>Instalación y mantenimiento de sistemas HVAC industriales y comerciales de alta eficiencia.</p>
+                       <div class="carousel-buttons">
+                           <a href="#servicios" class="btn btn-primary">Ver Servicios</a>
+                           <a href="#contacto" class="btn btn-secondary">Cotizar Ahora</a>
+                       </div>
+                   </div>
+               </div>
+           </div>
+
+           <!-- Slide 6: Telecomunicaciones -->
+           <div class="carousel-slide">
+               <img src="./img/cantv2.png" alt="Telecomunicaciones">
+               <div class="carousel-overlay">
+                   <div class="carousel-content">
+                       <span class="carousel-badge">Infraestructura</span>
+                       <h1>Telecomunicaciones <span>y Puesta a Tierra</span></h1>
+                       <p>Sistemas de puesta a tierra y protección contra descargas atmosféricas para torres de transmisión.</p>
+                       <div class="carousel-buttons">
+                           <a href="#servicios" class="btn btn-primary">Ver Servicios</a>
+                           <a href="#contacto" class="btn btn-secondary">Cotizar Ahora</a>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+        <!-- Carousel Navigation -->
+        <button class="carousel-arrow prev" id="carouselPrev">❮</button>
+        <button class="carousel-arrow next" id="carouselNext">❯</button>
+          <div class="carousel-nav" id="carouselDots">
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>14+</h3>
+                        <p>Años de Experiencia</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>44+</h3>
+                        <p>Servicios Especializados</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>Cobertura Nacional</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>24/7</h3>
+                        <p>Soporte Técnico</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Quiénes Somos</span>
+                <h2>Excelencia en Ingeniería</h2>
+                <p>Más de una década brindando soluciones profesionales a organizaciones públicas y privadas</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-content">
+                    <h3>Compromiso con la Calidad</h3>
+                    <p>Somos una empresa dedicada a la prestación de multiservicios en ingeniería, realización de estudios y análisis de proyectos eléctricos, mecánicos y civiles. Suministro, instalación y mantenimiento de equipos de corriente continua, corriente alterna, aire acondicionado, sistemas de puesta a tierra y automatización de procesos industriales.</p>
+                    <p>Actuamos como representantes o asesores de otras personas naturales o jurídicas en relación con los servicios prestados. Con alta experiencia en aplicaciones en el área de telecomunicaciones.</p>
+                </div>
+                <div class="about-image">
+                    <img src="./img/instalaciones.png" alt="Instalaciones IPROJECTS">
+                </div>
+            </div>
+
+            <div class="mission-vision">
+                <div class="mv-card animate">
+                    <h3>🎯 Nuestra Misión</h3>
+                    <p>Ser una empresa de ingeniería orientada hacia el desarrollo y ejecución de proyectos, estudios, asesoría y prestación de servicios profesionales a organizaciones públicas y privadas, utilizando métodos innovadores con los más altos estándares de calidad, dentro de un ambiente de sinergia, responsabilidad y profesionalismo, en búsqueda del reconocimiento de su cliente, con el fin de maximizar el beneficio sobre la inversión de sus accionistas, el bienestar de su personal y contribuir con el desarrollo del país.</p>
+                </div>
+                <div class="mv-card animate">
+                    <h3>👁️ Nuestra Visión</h3>
+                    <p>Ser una empresa reconocida a nivel regional, nacional e internacional por la excelente calidad técnica de los trabajos de ingeniería que ejecuta y los servicios profesionales que ofrece, por el valor agregado que les proporciona a sus clientes, así como por el manejo de costos competitivos, estándares de tiempo y seguridad en los proyectos que ejecuta.</p>
+                </div>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card animate">
+                    <div class="value-icon">🤝</div>
+                    <h4>Cooperación</h4>
+                </div>
+                <div class="value-card animate">
+                    <div class="value-icon">💡</div>
+                    <h4>Innovación</h4>
+                </div>
+                <div class="value-card animate">
+                    <div class="value-icon">🛡️</div>
+                    <h4>Seguridad</h4>
+                </div>
+                <div class="value-card animate">
+                    <div class="value-icon">😊</div>
+                    <h4>Amabilidad</h4>
+                </div>
+                <div class="value-card animate">
+                    <div class="value-icon">✅</div>
+                    <h4>Confianza</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Lo Que Ofrecemos</span>
+                <h2>Nuestros Servicios</h2>
+                <p>Soluciones completas de ingeniería y construcción para sus necesidades</p>
+            </div>
+
+            <div class="services-tabs">
+                <div class="service-tab active" data-category="all">Todos</div>
+                <div class="service-tab" data-category="ingenieria">Ingeniería</div>
+                <div class="service-tab" data-category="construccion">Construcción</div>
+                <div class="service-tab" data-category="revision">Revisión</div>
+                <div class="service-tab" data-category="automatizacion">Automatización</div>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card animate" data-category="ingenieria">
+                    <div class="service-header">
+                        <h3>Ingeniería de Detalle DC/AC</h3>
+                        <span class="service-code">SIP1</span>
+                    </div>
+                    <div class="service-body">
+                        <h3>Asignación de Alimentación de Equipos</h3>
+                        <p>Elaboración de Proyectos de Ingeniería de detalle para asignación de alimentación de equipos en DC, AC y conexiones de puesta a tierra.</p>
+                        <ul class="service-features">
+                            <li>Inspección en sitio</li>
+                            <li>Memoria descriptiva</li>
+                            <li>Planos técnicos</li>
+                            <li>Memoria fotográfica</li>
+                            <li>Cómputos métricos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card animate" data-category="ingenieria">
+                    <div class="service-header">
+                        <h3>Sistemas de Energía DC</h3>
+                        <span class="service-code">SIP2</span>
+                    </div>
+                    <div class="service-body">
+                        <h3>Ampliación de Sistemas DC</h3>
+                        <p>Ingeniería de detalle para ampliación de sistemas de energía DC con todos los entregables aprobados por el cliente.</p>
+                        <ul class="service-features">
+                            <li>Inspección técnica</li>
+                            <li>Documentación completa</li>
+                            <li>Planos de ingeniería</li>
+                            <li>Cómputos métricos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card animate" data-category="construccion">
+                    <div class="service-header">
+                        <h3>Coordinación de Obra</h3>
+                        <span class="service-code">SIP25</span>
+                    </div>
+                    <div class="service-body">
+                        <h3>Seguimiento a Construcción de Sistemas de Energía</h3>
+                        <p>Coordinación completa incluyendo permisos de trabajo, supervisión en sitio, protocolos de pruebas y certificación.</p>
+                        <ul class="service-features">
+                            <li>4 visitas de inspección</li>
+                            <li>Supervisión en sitio</li>
+                            <li>Protocolo de pruebas</li>
+                            <li>Certificación final</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card animate" data-category="revision">
+                    <div class="service-header">
+                        <h3>Revisión de Proyectos</h3>
+                        <span class="service-code">SIP22</span>
+                    </div>
+                    <div class="service-body">
+                        <h3>Aprobación de Instalaciones Eléctricas</h3>
+                        <p>Revisión hasta aprobación de proyectos de instalaciones eléctricas en AC, DC y sistemas de puesta a tierra según normativas.</p>
+                        <ul class="service-features">
+                            <li>2 revisiones por proyecto</li>
+                            <li>Observaciones técnicas</li>
+                            <li>Recomendaciones</li>
+                            <li>Informe detallado</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card animate" data-category="automatizacion">
+                    <div class="service-header">
+                        <h3>Automatización Industrial</h3>
+                        <span class="service-code">SIP42</span>
+                    </div>
+                    <div class="service-body">
+                        <h3>Automatización de Procesos</h3>
+                        <p>Levantamiento de información en sitio, planos eléctricos, de control y potencia que involucren el proceso a automatizar.</p>
+                        <ul class="service-features">
+                            <li>Análisis de procesos</li>
+                            <li>Planos de control</li>
+                            <li>Integración de sistemas</li>
+                            <li>Puesta en marcha</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card animate" data-category="ingenieria">
+                    <div class="service-header">
+                        <h3>Análisis de Redes</h3>
+                        <span class="service-code">SIP41</span>
+                    </div>
+                    <div class="service-body">
+                        <h3>Analizador de Redes Eléctricas</h3>
+                        <p>Instalación de analizador por 5 días con muestreo cada 10 minutos. Informe completo con gráficas y recomendaciones.</p>
+                        <ul class="service-features">
+                            <li>Monitoreo continuo</li>
+                            <li>Análisis de armónicos</li>
+                            <li>Informe técnico</li>
+                            <li>Recomendaciones</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="proyectos" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Nuestra Trayectoria</span>
+                <h2>Proyectos Realizados</h2>
+                <p>Experiencia comprobada en proyectos de gran envergadura a nivel nacional</p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card animate">
+                    <div class="project-image">
+                        <img src="./img/cantv2.png" alt="Proyecto CANTV">
+                    </div>
+                    <div class="project-content">
+                        <h3>Proyecto CANTV Nacional</h3>
+                        <p>Servicios profesionales asociados a labores con factibilidades, elaboración de proyectos de ingeniería de detalles, supervisión, inspección y entrega de obras contratadas para la instalación de equipos de energía y aire acondicionado dentro de la planta CANTV a nivel nacional.</p>
+                        <span class="project-period">Enero 2011 - Actualidad</span>
+                    </div>
+                </div>
+
+                <div class="project-card animate">
+                    <div class="project-image">
+                        <img src="./img/clima.png" alt="Sistemas HVAC">
+                    </div>
+                    <div class="project-content">
+                        <h3>Sistemas de Climatización</h3>
+                        <p>Instalación y mantenimiento de sistemas de aire acondicionado convencional y de precisión, incluyendo equipos de expansión directa, chillers, UMAS y fancoils para instalaciones críticas.</p>
+                        <span class="project-period">Proyectos Continuos</span>
+                    </div>
+                </div>
+
+                <div class="project-card animate">
+                    <div class="project-image">
+                        <img src="./img/automatizacion.png" alt="Automatización">
+                    </div>
+                    <div class="project-content">
+                        <h3>Automatización Industrial</h3>
+                        <p>Implementación de sistemas automatizados para procesos industriales, incluyendo levantamiento de información, planos eléctricos y de control, arranque y puesta en marcha.</p>
+                        <span class="project-period">Proyectos Especializados</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Maintenance Section -->
+    <section id="mantenimiento" class="maintenance">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Servicio 24/7</span>
+                <h2>Mantenimiento Preventivo &amp; Correctivo</h2>
+                <p>Atención integral los 365 días del año para sus sistemas de climatización y energía</p>
+            </div>
+
+            <div class="maintenance-grid">
+                <div class="maintenance-category animate">
+                    <h3>Aire Acondicionado</h3>
+                    <ul class="maintenance-list">
+                        <li>Equipos tipo ventana</li>
+                        <li>Equipos tipo compacto</li>
+                        <li>Split industrial y comercial</li>
+                        <li>Chillers por aire y agua</li>
+                        <li>UMAS y Fancoils</li>
+                        <li>Equipos de precisión</li>
+                    </ul>
+                </div>
+
+                <div class="maintenance-category animate">
+                    <h3>Sistemas Eléctricos</h3>
+                    <ul class="maintenance-list">
+                        <li>Rectificadores y convertidores</li>
+                        <li>Inversores y UPS</li>
+                        <li>Plantas eléctricas</li>
+                        <li>Bancos de baterías</li>
+                        <li>Puesta a tierra</li>
+                        <li>Tableros de distribución</li>
+                        <li>Transformadores de potencia</li>
+                    </ul>
+                </div>
+
+                <div class="maintenance-category animate">
+                    <h3>Servicios Adicionales</h3>
+                    <ul class="maintenance-list">
+                        <li>Sistemas de ventilación</li>
+                        <li>Sistemas de refrigeración</li>
+                        <li>Sistemas de control</li>
+                        <li>Acometidas eléctricas</li>
+                        <li>Celdas de potencia</li>
+                        <li>Suministro de combustible</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="maintenance-info">
+                <h3>📋 Rutina de Mantenimiento Preventivo</h3>
+                <p>Nuestro servicio integral de operación y mantenimiento abarca la ejecución del mantenimiento preventivo, correctivo y predictivo las 24 horas al día los 365 días del año.</p>
+                <ul>
+                    <li>Verificación de voltajes y corrientes</li>
+                    <li>Revisión de motores y compresores</li>
+                    <li>Lecturas de presión de compresores</li>
+                    <li>Limpieza de componentes y filtros</li>
+                    <li>Limpieza de serpentines y charolas</li>
+                    <li>Revisión de cableado eléctrico</li>
+                    <li>Alineación de bandas y ventiladores</li>
+                    <li>Detección y corrección de fugas</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Hablemos</span>
+                <h2>Contáctanos</h2>
+                <p>Estamos listos para atender sus necesidades de ingeniería y construcción</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <p>Póngase en contacto con nosotros para solicitar una cotización o resolver cualquier duda sobre nuestros servicios.</p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <h4>Dirección</h4>
+                                <p>Maracay, Estado Aragua, Venezuela</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <h4>Teléfonos</h4>
+                                <p>+58 422-009.83.56</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>iproject2050@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">🕐</div>
+                            <div>
+                                <h4>Horario de Atención</h4>
+                                <p>Lunes a Viernes: 8:00 AM - 5:00 PM</p>
+                                <p>Servicio de Emergencia: 24/7</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nombre Completo</label>
+                            <input type="text" id="name" class="form-control" placeholder="Su nombre" required="">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" id="email" class="form-control" placeholder="su@correo.com" required="">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="Su número de teléfono">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Servicio de Interés</label>
+                            <textarea id="service" class="form-control" placeholder="Servicio que requiere" required=""></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" class="form-control" placeholder="Describa su proyecto o necesidad" required=""></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">📲 Enviar por WhatsApp</button>
+
+                        <script>
+                          document.getElementById('contactForm').addEventListener('submit', function (e) {
+                              e.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+
+                              // Obtener los valores del formulario
+                              const name = document.getElementById('name').value;
+                              const email = document.getElementById('email').value;
+                              const phone = document.getElementById('phone').value;
+                              const service = document.getElementById('service').value;
+                              const message = document.getElementById('message').value;
+
+                              // Crear el mensaje para WhatsApp
+                              const whatsappMessage = `Hola, mi nombre es ${name}.\nMi correo electrónico es ${email}.\nmi teléfono ${phone}.\nRequiero el servicio de ${service}\n${message}`;
+
+                              // Codificar el mensaje para que sea válido en una URL
+                              const encodedMessage = encodeURIComponent(whatsappMessage);
+
+                              // Número de teléfono (reemplaza con tu número)
+                              const phoneNumber = "+584220098356"; // Ejemplo: +521234567890
+
+                              // Crear el enlace de WhatsApp
+                              const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+                              // Redirigir al usuario al chat de WhatsApp
+                              window.open(whatsappLink, '_blank');
+                            });
+                        </script>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>IPROJECT,CA</h4>
+                    <p>Empresa dedicada a la prestación de multiservicios en ingeniería, realización de estudios y análisis de proyectos eléctricos, mecánicos y civiles.</p>
+                    <div class="social-links">
+                      <a href="https://wa.me/584220098356" target="_blank" class="social-link" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                      </a>
+                      <a href="https://www.facebook.com/iproject.iproject.50" target="_blank" class="social-link" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                      </a>
+                      <a href="https://instagram.com/iproject2050" target="_blank" class="social-link" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                      </a>
+                      <a href="mailto:iproject2050@gmail.com" class="social-link" title="Gmail">
+                        <i class="fas fa-envelope"></i>
+                      </a>
+                    </div>
+
+                </div>
+
+                <div class="footer-col">
+                    <h4>Servicios</h4>
+                    <ul class="footer-links">
+                        <li><a href="#servicios">Ingeniería de Detalle</a></li>
+                        <li><a href="#servicios">Construcción y Supervisión</a></li>
+                        <li><a href="#mantenimiento">Mantenimiento Preventivo</a></li>
+                        <li><a href="#servicios">Automatización Industrial</a></li>
+                        <li><a href="#servicios">Sistemas de Seguridad</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#proyectos">Proyectos</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Valores</h4>
+                    <ul class="footer-links">
+                        <li>✓ Cooperación</li>
+                        <li>✓ Innovación</li>
+                        <li>✓ Seguridad</li>
+                        <li>✓ Amabilidad</li>
+                        <li>✓ Confianza</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 IPROJECT, CA Todos los derechos reservados. | Página Web diseñada por César Ramírez León</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <div class="scroll-top" id="scrollTop">↑</div>
+
+    <script>
+        // Carousel Functionality
+        const carouselTrack = document.getElementById('carouselTrack');
+        const carouselSlides = document.querySelectorAll('.carousel-slide');
+        const carouselPrev = document.getElementById('carouselPrev');
+        const carouselNext = document.getElementById('carouselNext');
+        const carouselDots = document.getElementById('carouselDots');
+        const progressBar = document.getElementById('progressBar');
+
+        let currentSlide = 0;
+        const totalSlides = carouselSlides.length;
+        const slideInterval = 3000;
+        let autoPlayInterval;
+        let progressInterval;
+        let progressStart = 0;
+
+        carouselSlides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('carousel-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            carouselDots.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.carousel-dot');
+
+        function updateCarousel() {
+            carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            carouselSlides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                }
+            });
+
+            dots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            if (currentSlide >= totalSlides) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = totalSlides - 1;
+            updateCarousel();
+            resetProgress();
+        }
+
+        function nextSlide() {
+            goToSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentSlide - 1);
+        }
+
+        function startProgress() {
+            progressStart = Date.now();
+            progressInterval = setInterval(() => {
+                const elapsed = Date.now() - progressStart;
+                const progress = (elapsed / slideInterval) * 100;
+                progressBar.style.width = `${Math.min(progress, 100)}%`;
+
+                if (progress >= 100) {
+                    clearInterval(progressInterval);
+                }
+            }, 50);
+        }
+
+        function resetProgress() {
+            clearInterval(progressInterval);
+            progressBar.style.width = '0%';
+            startProgress();
+        }
+
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(nextSlide, slideInterval);
+            startProgress();
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+            clearInterval(progressInterval);
+        }
+
+        carouselNext.addEventListener('click', () => {
+            nextSlide();
+            stopAutoPlay();
+            startAutoPlay();
+        });
+
+        carouselPrev.addEventListener('click', () => {
+            prevSlide();
+            stopAutoPlay();
+            startAutoPlay();
+        });
+
+        const heroCarousel = document.querySelector('.hero-carousel');
+        heroCarousel.addEventListener('mouseenter', stopAutoPlay);
+        heroCarousel.addEventListener('mouseleave', () => {
+            startAutoPlay();
+        });
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        heroCarousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            stopAutoPlay();
+        });
+
+        heroCarousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+            startAutoPlay();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            if (touchStartX - touchEndX > swipeThreshold) {
+                nextSlide();
+            } else if (touchEndX - touchStartX > swipeThreshold) {
+                prevSlide();
+            }
+        }
+
+        startAutoPlay();
+
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        const navLinksItems = document.querySelectorAll('.nav-links a');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        navLinksItems.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileToggle.textContent = '☰';
+            });
+        });
+
+        // Header Background on Scroll
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(26, 26, 46, 1)';
+            } else {
+                header.style.background = 'rgba(26, 26, 46, 0.98)';
+            }
+        });
+
+        // Scroll to Top Button
+        const scrollTop = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        scrollTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Service Tabs Filter
+        const serviceTabs = document.querySelectorAll('.service-tab');
+        const serviceCards = document.querySelectorAll('.service-card');
+
+        serviceTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                serviceTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const category = tab.dataset.category;
+
+                serviceCards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeInUp 0.5s ease-out forwards';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value
+            };
+
+            alert('¡Gracias por su mensaje! Nos pondremos en contacto con usted pronto.');
+            contactForm.reset();
+
+            console.log('Form ', formData);
+        });
+
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate Elements on Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .project-card, .maintenance-category, .value-card, .mv-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+
+
+</body></html>
